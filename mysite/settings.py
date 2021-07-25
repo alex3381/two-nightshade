@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import datetime
 import os
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-3#i8^e&zyx)87ea&mpp^jcg)cas6^)%2bk)r2@24az2gpa_%f1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['two-nightshade.herokuapp.com' ]
+ALLOWED_HOSTS = [ 'two-nightshade.herokuapp.com' ]
 
 # Application definition
 
@@ -89,12 +90,6 @@ DATABASES = {
         'PORT': ''
     }
 }
-
-
-
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -165,3 +160,5 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
 STATIC_URL = STATIC_HOST + '/static/'
+
+django_heroku.settings(locals())
