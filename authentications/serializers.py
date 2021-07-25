@@ -7,6 +7,7 @@ from sqlparse.compat import text_type
 from . import models
 from .models import User
 
+
 UserModel = get_user_model()
 
 
@@ -51,8 +52,6 @@ class RegisterSerializer(serializers.ModelSerializer):
             email=validated_data [ 'email' ],
             name=validated_data [ 'name' ],
         )
-
-
         password = self.validated_data [ 'password' ]
         confirm_password = self.validated_data [ 'confirm_password' ]
 
@@ -79,7 +78,7 @@ class LoginSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserModel
-        fields = [ 'id', 'email', 'password', 'type', 'name','tokens' ]
+        fields = [ 'id', 'email', 'password', 'type', 'name', 'tokens' ]
 
     def validate(self, attrs):
         email = attrs.get('email', '')
@@ -103,4 +102,6 @@ class LoginSerializer(serializers.ModelSerializer):
 
         }
 
-        return super().validate(attrs),
+    # def __str__(self):
+    #     return self.user
+        return super().validate(),

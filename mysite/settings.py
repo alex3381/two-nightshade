@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3#i8^e&zyx)87ea&mpp^jcg)cas6^)%2bk)r2@24az2gpa_%f1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ 'nightshades.herokuapp.com' ]
+ALLOWED_HOSTS = ['night-shades.herokuapp.com' ]
 
 # Application definition
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'rest_framework',
-    'drf_yasg',
+
 ]
 
 MIDDLEWARE = [
@@ -170,6 +170,6 @@ prod_db = dj_database_url.config(conn_max_age=500)
 DATABASES [ 'default' ].update(prod_db)
 
 
-import django_heroku
-
-django_heroku.settings(locals())
+# import django_heroku
+#
+# django_heroku.settings(locals())
