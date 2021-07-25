@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3#i8^e&zyx)87ea&mpp^jcg)cas6^)%2bk)r2@24az2gpa_%f1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [ '127.0.0.1', 'herokuapp.com' ]
+ALLOWED_HOSTS = ['two-nightshade.herokuapp.com' ]
 
 # Application definition
 
@@ -90,8 +90,7 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES [ 'default' ].update(db_from_env)
+
 
 
 
@@ -157,6 +156,9 @@ REST_AUTH_SERIALIZERS = {
 }
 
 AUTH_USER_MODEL = 'authentications.User'
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES [ 'default' ].update(db_from_env)
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
